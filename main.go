@@ -4,11 +4,11 @@ package main
 import (
 	"net/http"
 
-	"github.com/TimothyCole/FossaPoints/p"
+	p "github.com/TimothyCole/FossaPoints/ls"
 )
 
 func main() {
-	http.HandleFunc("/", p.GetPoints)
+	http.HandleFunc("/", p.LastSeen)
 
 	panic(http.ListenAndServe(":8080", nil))
 }

@@ -1,0 +1,6 @@
+gcloud alpha functions deploy FossaBot_LastSeen \
+  --entry-point LastSeen \
+  --memory 128MB \
+  --region us-central1 \
+  --runtime go111 \
+  --trigger-http

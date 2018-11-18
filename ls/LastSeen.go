@@ -14,8 +14,8 @@ var (
 	users map[string]ChannelChatters
 )
 
-// GetPoints gives everyone in chat points
-func GetPoints(w http.ResponseWriter, r *http.Request) {
+// LastSeen gives everyone in chat points
+func LastSeen(w http.ResponseWriter, r *http.Request) {
 	user := r.URL.Query().Get("user")
 	if user == "" {
 		if ok := must(w, fmt.Errorf("no user param")); !ok {
@@ -48,7 +48,7 @@ func GetPoints(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	w.Write([]byte(fmt.Sprintf("%s currently has %d %s", user, uChatter.Currency, uChannel.CurrencyName)))
+	w.Write([]byte(fmt.Sprintf("%s was last seen %s", user, uChatter.LastSeen.Format(time.RFC1123))))
 }
 
 func must(w http.ResponseWriter, err error) bool {
