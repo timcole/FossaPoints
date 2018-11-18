@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	http.HandleFunc("/", p.MyFunction)
+	http.HandleFunc("/", p.GetPoints)
 
 	panic(http.ListenAndServe(":8080", nil))
 }
